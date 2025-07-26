@@ -1,0 +1,27 @@
+.carousel-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #e63946 !important;
+  font-size: 30px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important;
+  color: white !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #e63946 !important;
+}

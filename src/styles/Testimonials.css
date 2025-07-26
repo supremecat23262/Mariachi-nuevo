@@ -1,0 +1,70 @@
+.testimonials {
+  background-color: var(--background);
+}
+
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--dark);
+  position: relative;
+}
+
+.testimonials h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary);
+  margin: 1rem auto 0;
+}
+
+.testimonials-slider {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  padding: 2rem;
+  text-align: center;
+}
+
+.testimonial-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-content p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.rating {
+  color: #FFD700;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.testimonial-content h4 {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* Estilos para react-slick */
+.slick-dots li button:before {
+  color: var(--primary) !important;
+  opacity: 0.5 !important;
+  font-size: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+  color: var(--primary) !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: var(--primary) !important;
+  font-size: 24px !important;
+}
