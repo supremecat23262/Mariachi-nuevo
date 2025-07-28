@@ -1,12 +1,31 @@
-.services {
-  background-color: var(--background);
+.upload-optional {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  display: block;
+  color: #555;
+}
+
+.open-comment-form {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.testimonial-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .services h2 {
   text-align: center;
-  margin-bottom: 3rem;
-  color: var(--dark);
-  position: relative;
+  margin-bottom: 2rem;
 }
 
 .services h2::after {
@@ -20,15 +39,15 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-medium);
+  margin-bottom: 2rem;
 }
 
 .service-card {
   background-color: white;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-top: 4px solid var(--primary);
@@ -39,13 +58,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.service-icon {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
 .service-card h3 {
-  color: var(--dark);
   margin-bottom: 1rem;
 }
 
@@ -57,6 +70,7 @@
   margin-bottom: 0.5rem;
   position: relative;
   padding-left: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .service-card li::before {
@@ -73,4 +87,88 @@
   margin: 0 auto;
   font-style: italic;
   color: var(--gray);
+  font-size: 0.95rem;
+}
+.promo-box {
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 6px solid var(--primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-top: 3rem;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  color: var(--text);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.promo-box strong {
+  color: var(--primary);
+}
+/* Estilo del botón de comentario */
+.btn-comment {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #c91818;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-comment:hover {
+  background-color: #a51212;
+  transform: scale(1.05);
+}
+
+/* Estilo del mensaje flotante */
+.form-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #e7ffe7;
+  color: #207520;
+  border-left: 4px solid #4caf50;
+  border-radius: 8px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .promo-box {
+    flex-direction: column;
+    font-size: 0.95rem;
+  }
 }

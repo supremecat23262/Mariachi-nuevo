@@ -1,3 +1,31 @@
+.testimonial-photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.rating-stars svg {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.rating-stars .active {
+  color: gold;
+}
+
+.photo-upload {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.photo-upload input {
+  display: none;
+}
+
 .testimonials {
   background-color: var(--background);
 }
@@ -26,6 +54,7 @@
 .testimonial-card {
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 .testimonial-content {
@@ -67,4 +96,42 @@
 .slick-prev:before, .slick-next:before {
   color: var(--primary) !important;
   font-size: 24px !important;
+}
+.testimonial-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.testimonial-form input,
+.testimonial-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.testimonial-form button {
+  background-color: var(--primary, #e63946);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.testimonial-photo {
+  max-width: 90px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+.form-message {
+  color: #28a745;
+  font-weight: 600;
 }

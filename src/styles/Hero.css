@@ -1,3 +1,39 @@
+.titulo-mexico {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.titulo-mexico span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.titulo-mexico span:hover {
+  transform: scale(1.1);
+}
+
+.verde {
+  color: #00472e;
+  padding-right: .5rem;
+}
+
+.blanco {
+  color: #f8f9fa;
+  padding-right: .5rem;
+
+}
+
+.rojo {
+  color: #9a011b;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .hero {
   background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('/images/hero-bg.jpg');
   background-size: cover;
@@ -5,7 +41,7 @@
   background-attachment: fixed;
   color: white;
   text-align: center;
-  padding: 10rem 1rem 4rem;
+  padding: 2rem 1rem 4rem;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -30,7 +66,7 @@
 .hero h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: rgb(107, 3, 3);
 }
 
 .hero p {
@@ -109,7 +145,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 8rem;
+    padding-top: 1rem;
     min-height: auto;
     padding-bottom: 4rem;
   }

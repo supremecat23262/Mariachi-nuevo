@@ -1,11 +1,12 @@
 .carousel-container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 2rem auto;
+  padding: 0 var(--container-padding);
 }
 
 .carousel-image {
   width: 100%;
-  height: 450px;
+  height: 500px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -13,7 +14,7 @@
 
 .slick-prev:before,
 .slick-next:before {
-  color: #e63946 !important;
+  color: var(--primary) !important;
   font-size: 30px !important;
 }
 
@@ -23,5 +24,22 @@
 }
 
 .slick-dots li.slick-active button:before {
-  color: #e63946 !important;
+  color: var(--primary) !important;
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 350px;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-image {
+    height: 250px;
+  }
 }

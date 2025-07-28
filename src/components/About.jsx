@@ -1,5 +1,7 @@
 import React from 'react'
 import '../styles/About.css'
+import aboutImage from '../assets/images/about-mariachi.jpg';
+
 
 const About = () => {
   return (
@@ -22,7 +24,7 @@ const About = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src="/images/about-mariachi.jpg" alt="Mariachi Sones de México" />
+            <img src={aboutImage} alt="Mariachi Sones de México" />
           </div>
         </div>
       </div>
