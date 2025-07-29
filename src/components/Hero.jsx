@@ -14,10 +14,10 @@ const Hero = () => {
         <h1>Mariachi Reyes de México</h1>
         <p>Mariachis en Mérida, Yucatán a 30 minutos de ti</p>
         <div className="cta-buttons">
-          <a href="tel:+529991189181" className="cta-button">
+          <a href="tel:+529991490660" className="cta-button">
             Llama ahora
           </a>
-          <a href="https://wa.me/529991189181" className="cta-button whatsapp">
+          <a href="https://wa.me/529991490660" className="cta-button whatsapp">
             WhatsApp
           </a>
         </div>
