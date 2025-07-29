@@ -34,6 +34,13 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100vw; /* Máximo ancho = viewport */
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -80,7 +87,8 @@ section {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1rem;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
