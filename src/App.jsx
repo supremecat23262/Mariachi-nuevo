@@ -8,7 +8,6 @@ import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import Ubicacion from './components/Ubicacion';
-import FloatingWhatsapp from './components/FloatingWhatsapp';
 
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
         <Testimonials />
         <FAQ />
         <Ubicacion/>
-        <FloatingWhatsapp />
       </main>
       <Footer />
     </div>
