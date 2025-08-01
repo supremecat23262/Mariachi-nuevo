@@ -1,5 +1,5 @@
 .about {
-  background-color: var(--secondary);
+  background-color: var(--background);
 }
 
 .about h2 {
@@ -26,6 +26,11 @@
 
 .about-text {
   flex: 1;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.627);
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  padding: 10px;
 }
 
 .about-image {

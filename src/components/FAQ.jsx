@@ -8,7 +8,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "¿Dónde están ubicados?",
-      answer: "Nos ubicamos en la Calle 18 #9 por 23a y, Mérida - Chalmuch, 97314 Susulá, en la ciudad de Mérida, Yucatán."
+      answer: "Nos ubicamos en la Calle 28 por 9 y 11 #309 Colonia Juan Pablo ll, en la ciudad de Mérida, Yucatán."
     },
     {
       question: "¿Qué incluye el servicio?",

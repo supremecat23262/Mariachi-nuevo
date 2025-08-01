@@ -12,7 +12,7 @@
 }
 
 .footer-section h3 {
-  color: var(--primary);
+  color: var(--primary-dark);
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
 }
@@ -32,6 +32,7 @@
 .contact-info a {
   color: var(--light);
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-info a:hover {

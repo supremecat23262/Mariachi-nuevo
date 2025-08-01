@@ -1,73 +1,51 @@
-import React, { useState } from 'react';
-import { FaMusic, FaGlassCheers, FaCalendarAlt, FaGift, FaStar, FaImage } from 'react-icons/fa';
+import React, { useState, useRef, useEffect } from 'react';
+import { FaMusic, FaGlassCheers, FaCalendarAlt, FaGift, FaStar } from 'react-icons/fa';
 import { supabase } from '../../supabaseClient';
 import '../styles/Services.css';
 
 const Services = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [newTestimonial, setNewTestimonial] = useState({
-    name: '',
-    comment: '',
-    rating: 5,
-    photo: null
-  });
+  const [showModal, setShowModal] = useState(false);
+  const [newTestimonial, setNewTestimonial] = useState({ name: '', comment: '', rating: 5 });
   const [message, setMessage] = useState('');
+  const modalRef = useRef();
+
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      setShowModal(false);
+    }
+  };
+
+  useEffect(() => {
+    if (showModal) document.addEventListener('mousedown', handleClickOutside);
+    else document.removeEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showModal]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { name, comment, rating } = newTestimonial;
     setMessage('');
 
-    const { name, comment, rating, photo } = newTestimonial;
     if (!name || !comment) {
       setMessage('Por favor escribe tu nombre y comentario.');
       return;
     }
 
-    let photo_url = null;
-    if (photo) {
-      const fileExt = photo.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `${fileName}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from('photos')
-        .upload(filePath, photo, {
-          cacheControl: '3600',
-          upsert: false
-        });
-
-      if (uploadError) {
-        console.error(uploadError);
-        setMessage('Error al subir la imagen.');
-        return;
-      }
-
-      const { data: publicURL } = supabase.storage.from('photos').getPublicUrl(filePath);
-      photo_url = publicURL?.publicUrl || null;
-    }
-
-    const { error } = await supabase.from('testimonials').insert([{
-      name,
-      comment,
-      rating,
-      photo_url
-    }]);
+    const { error } = await supabase.from('testimonials').insert([{ name, comment, rating }]);
 
     if (error) {
       console.error(error);
       setMessage('Ocurrió un error al enviar tu comentario.');
     } else {
       setMessage('¡Gracias por tu comentario! 🎶');
-      setNewTestimonial({ name: '', comment: '', rating: 5, photo: null });
+      setNewTestimonial({ name: '', comment: '', rating: 5 });
 
-      // Ocultar formulario después de un tiempo
       setTimeout(() => {
         setMessage('');
-        setShowForm(false);
-      }, 3000); // 3 segundos
+        setShowModal(false);
+      }, 3000);
     }
   };
-
 
   return (
     <section id="servicios" className="services">
@@ -86,21 +64,21 @@ const Services = () => {
             <ul>
               <li><strong>Paquete 1:</strong> 6 canciones</li>
               <li><strong>Paquete 2:</strong> 10 canciones</li>
-              <li><strong>Paquete 1:</strong> 1 hora completa</li>
+              <li><strong>Paquete 3:</strong> 1 hora completa</li>
             </ul>
           </div>
           <div className="service-card">
             <div className="service-icon">
               <FaMusic size={40} />
             </div>
-            <h3>Mariachi Económico (4 integrantes)</h3>
+            <h3>Paquete Básico - Mariachi Tradicional (4 integrantes)</h3>
             <p>
-              Una excelente opción económica para eventos íntimos. Ideal si deseas música en vivo sin comprometer la calidad.
+              Una opción elegante para eventos íntimos, que combina autenticidad y profesionalismo musical en un formato reducido.
             </p>
             <ul>
-              <li>Incluye guitarrón, vihuela, violín y trompeta</li>
-              <li>Repertorio versátil y profesional</li>
-              <li>Disponibilidad: <strong>Lunes a Jueves todo el día</strong>, <strong>Viernes hasta el mediodía</strong></li>
+              <li>Formación clásica: guitarrón, vihuela, violín y trompeta</li>
+              <li>Repertorio tradicional adaptado a la ocasión</li>
+              <li>Disponibilidad: <strong>Lunes a jueves (horario completo)</strong>, <strong>viernes (hasta las 14:00 hrs)</strong></li>
             </ul>
           </div>
 
@@ -108,14 +86,14 @@ const Services = () => {
             <div className="service-icon">
               <FaGlassCheers size={40} />
             </div>
-            <h3>Mariachi Completo (7 integrantes)</h3>
+            <h3>Paquete Completo - Mariachi Clásico (7 músicos)</h3>
             <p>
-              La experiencia más completa y majestuosa. Perfecto para grandes celebraciones donde se busca una presencia poderosa.
+              La máxima expresión del mariachi profesional, ideal para eventos especiales que requieren solemnidad y brillo musical.
             </p>
             <ul>
-              <li>Instrumentación completa con voces armónicas</li>
-              <li>Disponible todos los días</li>
-              <li>Ideal para bodas, aniversarios, XV años y más</li>
+              <li>Formación completa con sección de cuerdas y metales (guitarrón, vihuela, violín y trompeta) </li>
+              <li>Disponibilidad inmediata todos los días del año</li>
+              <li>Recomendado para bodas, XV años, aniversarios y eventos corporaticos</li>
             </ul>
           </div>
 
@@ -133,45 +111,44 @@ const Services = () => {
             🎁 <strong>¡Canción adicional GRATIS!</strong><br />
             Publica un comentario positivo y muéstralo el día del evento para ganar una canción extra.
           </p>
-          <button className="btn-comment" onClick={() => setShowForm(!showForm)}>
-            {showForm ? 'Ocultar formulario' : 'Dejar mi comentario'}
+          <button className="btn-comment" onClick={() => setShowModal(true)}>
+            Dejar mi comentario
           </button>
         </div>
 
-        {showForm && (
-          <form className="testimonial-form" onSubmit={handleSubmit}>
-            <h3>Comparte tu experiencia</h3>
-            <input
-              type="text"
-              placeholder="Tu nombre"
-              value={newTestimonial.name}
-              onChange={(e) => setNewTestimonial({ ...newTestimonial, name: e.target.value })}
-            />
-            <textarea
-              placeholder="¿Qué te pareció nuestro servicio?"
-              value={newTestimonial.comment}
-              onChange={(e) => setNewTestimonial({ ...newTestimonial, comment: e.target.value })}
-            />
-            <div className="rating-stars">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <FaStar
-                  key={star}
-                  className={newTestimonial.rating >= star ? 'active' : ''}
-                  onClick={() => setNewTestimonial({ ...newTestimonial, rating: star })}
+        {showModal && (
+          <div className="modal-overlay">
+            <div className="modal-content" ref={modalRef}>
+              <form className="testimonial-form" onSubmit={handleSubmit}>
+                <h3>Comparte tu experiencia</h3>
+                <input
+                  type="text"
+                  placeholder="Tu nombre"
+                  value={newTestimonial.name}
+                  onChange={(e) => setNewTestimonial({ ...newTestimonial, name: e.target.value })}
                 />
-              ))}
+                <textarea
+                  placeholder="¿Qué te pareció nuestro servicio?"
+                  value={newTestimonial.comment}
+                  onChange={(e) => setNewTestimonial({ ...newTestimonial, comment: e.target.value })}
+                />
+                <div className="rating-stars">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <FaStar
+                      key={star}
+                      className={newTestimonial.rating >= star ? 'active' : ''}
+                      onClick={() => setNewTestimonial({ ...newTestimonial, rating: star })}
+                    />
+                  ))}
+                </div>
+                <div className="form-buttons">
+                  <button type="submit">Enviar</button>
+                  <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
+                </div>
+                {message && <p className="form-message">{message}</p>}
+              </form>
             </div>
-            <label className="photo-upload">
-              <FaImage /> Subir foto (opcional)
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setNewTestimonial({ ...newTestimonial, photo: e.target.files[0] })}
-              />
-            </label>
-            <button type="submit">Enviar</button>
-            {message && <p className="form-message">{message}</p>}
-          </form>
+          </div>
         )}
       </div>
     </section>

@@ -16,11 +16,77 @@
   font-weight: bold;
 }
 
-.testimonial-form {
-  margin-top: 2rem;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: linear-gradient(to bottom, #fffdfa, #fff);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 520px;
+  animation: slideUp 0.5s ease-out;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--primary);
+  position: relative;
+}
+
+.testimonial-form input,
+.testimonial-form textarea,
+.testimonial-form select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #fdfdfd;
+}
+
+.testimonial-form input:focus,
+.testimonial-form textarea:focus,
+.testimonial-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+/* Encabezado del formulario */
+.testimonial-form h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+/* Botones */
+.testimonial-form .form-buttons button {
+  flex: 1;
+  padding: 0.7rem 2rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.testimonial-form .form-buttons button:hover {
+  background-color: #a51212;
+  transform: scale(1.05);
+}
+/* Desplegable de mensajes predefinidos */
+.testimonial-form select {
+  font-size: 0.95rem;
+  background-color: #fff;
 }
 
 .services h2 {
@@ -35,6 +101,16 @@
   height: 4px;
   background-color: var(--primary);
   margin: 1rem auto 0;
+}
+
+.rating-stars svg {
+  font-size: 1.5rem;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.rating-stars .active {
+  color: gold;
 }
 
 .services-grid {
@@ -143,19 +219,29 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
-
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
     transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Nueva animación desde abajo */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
   }
   100% {
     opacity: 1;

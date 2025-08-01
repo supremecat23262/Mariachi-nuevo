@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { supabase } from '../../supabaseClient';
+import { FaStar } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/Testimonials.css';
@@ -36,11 +37,14 @@ const Testimonials = () => {
     <section className="testimonials">
       <div className="container">
         <h2>Lo que dicen nuestros clientes</h2>
-
         <Slider {...settings} className="testimonials-slider">
           {testimonials.map((t) => (
             <div key={t.id} className="testimonial-card">
-              {t.photo_url && <img src={t.photo_url} alt={t.name} className="testimonial-photo" />}
+              <div className="stars">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <FaStar key={s} className={t.rating >= s ? 'active' : ''} />
+                ))}
+              </div>
               <p>"{t.comment}"</p>
               <h4>- {t.name}</h4>
             </div>

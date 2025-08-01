@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mariachi-nuevo.vercel.app/sitemap.xml
+Sitemap: https://mariachisonesdemexico.com/sitemap.xml

@@ -7,11 +7,11 @@ const Hero = () => {
     <section id="inicio" className="hero">
       <div className="hero-content">
         <h2 className="titulo-mexico">
-          <span className="verde">Música mexicana</span>
-          <span className="blanco">para todo</span>
-          <span className="rojo">tipo de evento</span>
+          <span className="verde"></span>
+          <span className="blanco">Música mexicana para todo tipo de evento</span>
+          <span className="rojo"></span>
         </h2>
-        <h1>Mariachi Reyes de México</h1>
+        <h1>Mariachi Sones de México</h1>
         <p>Mariachis en Mérida, Yucatán a 30 minutos de ti</p>
         <div className="cta-buttons">
           <a href="tel:+529991490660" className="cta-button">

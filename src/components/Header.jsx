@@ -19,8 +19,8 @@ const Header = () => {
     <header className={`header ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="header-inner">
         <div className="logo">
-          <img src={logo} alt="Logo Mariachi Reyes de México" className="logo-image" />
-          <h1>Mariachi Reyes de México</h1>
+          <img src={logo} alt="Logo Mariachi Sones de México" className="logo-image" />
+          <h1>Mariachi Sones de México</h1>
         </div>
 
         {/* Botón del menú hamburguesa */}
@@ -37,10 +37,10 @@ const Header = () => {
         <nav className={`navigation ${isMenuOpen ? 'active' : ''}`}>
           <ul>
             <li><a href="#inicio" onClick={toggleMenu}>Inicio</a></li>
-            <li><a href="#servicios" onClick={toggleMenu}>Servicios</a></li>
             <li><a href="#nosotros" onClick={toggleMenu}>Nosotros</a></li>
+            <li><a href="#servicios" onClick={toggleMenu}>Servicios</a></li>
+            <li><a href="#ubicacion" onClick={toggleMenu}>Ubicación</a></li>            
             <li><a href="#contacto" onClick={toggleMenu}>Contacto</a></li>
-            <li><a href="#ubicacion" onClick={toggleMenu}>Ubicación</a></li>
           </ul>
         </nav>
 

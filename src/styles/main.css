@@ -1,16 +1,15 @@
 :root {
-  --primary: #e63946;
-  --primary-dark: #c1121f;
-  --secondary: #f1faee;
-  --dark: #1d3557;
-  --light: #a8dadc;
-  --accent: #457b9d;
-  --text: #333333;
-  --text-light: #f8f9fa;
-  --background: #ffffff;
-  --gray: #6c757d;
+  --primary: #bc0f0f;        /* Rojo vino */
+  --primary-dark: #7a0016;   /* Rojo vino oscuro */
+  --secondary: #fff4e6;      /* Fondo cálido tipo pergamino */
+  --dark: #1a1a1a;           /* Negro elegante */
+  --light: #f5e9dc;          /* Crema claro */
+  --accent: #d4af37;         /* Dorado */
+  --text: #2c2c2c;           /* Gris oscuro para texto */
+  --text-light: #fafafa;
+  --background: #fffffe;     /* Blanco cálido */
+  --gray: #7c7c7c;
   
-  /* Responsive variables */
   --header-height: 80px;
   --section-padding: 80px;
   --container-width: 1280px;
