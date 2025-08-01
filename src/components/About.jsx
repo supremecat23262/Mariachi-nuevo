@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/About.css'
-import aboutImage from '../assets/images/about-mariachi.jpg';
+import aboutImage from '../assets/images/about-mariachi.webp';
 
 
 const About = () => {
@@ -21,7 +21,7 @@ const About = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src={aboutImage} alt="Mariachi Sones de México" />
+            <img src={aboutImage} alt="Mariachi Sones de México" loading="lazy"/>
           </div>
         </div>
       </div>

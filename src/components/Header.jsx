@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaPhone, FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/Header.css';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
