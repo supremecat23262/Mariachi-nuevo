@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from './Carousel'
 import '../styles/Hero.css'
+import { gtagEvent } from '../lib/gtag';
 
 const Hero = () => {
   return (
@@ -14,10 +15,30 @@ const Hero = () => {
         <h1>Mariachi Sones de México</h1>
         <p>Mariachis en Mérida, Yucatán a 30 minutos de ti</p>
         <div className="cta-buttons">
-          <a href="tel:+529991490660" className="cta-button">
+          <a
+            href="tel:+529991490660"
+            className="cta-button"
+            onClick={() =>
+              gtagEvent({
+                action: 'clic_telefono',
+                category: 'contacto',
+                label: 'hero',
+              })
+            }
+          >
             Llama ahora
           </a>
-          <a href="https://wa.me/529991490660" className="cta-button whatsapp">
+          <a
+            href="https://wa.me/529991490660"
+            className="cta-button whatsapp"
+            onClick={() =>
+              gtagEvent({
+                action: 'clic_whatsapp',
+                category: 'contacto',
+                label: 'hero',
+              })
+            }
+          >
             WhatsApp
           </a>
         </div>
