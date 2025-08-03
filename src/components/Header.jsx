@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { FaPhone, FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/Header.css';
 import logo from '../assets/logo.webp';
-import { gtagEvent } from '../lib/gtag';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,28 +47,11 @@ const Header = () => {
         {/* Botones de contacto */}
         <div className={`contact-buttons ${isMenuOpen ? 'mobile-visible' : ''}`}>
           <a href="tel:+529991490660" 
-             className="contact-link"
-                            onClick={() =>
-                gtagEvent({
-                  action: 'clic_telefono',
-                  category: 'contacto',
-                  label: 'hero',
-                })
-              }
-            >
+             className="contact-link">
             <FaPhone className="icon" />
             <span className="contact-text">999 149 0660</span>
           </a>
-          <a href="https://wa.me/529991490660" 
-             className="contact-link whatsapp"
-               onClick={() =>
-                gtagEvent({
-                  action: 'clic_whatsapp',
-                  category: 'contacto',
-                  label: 'hero',
-                })
-              }
-            >
+          <a href="https://wa.me/529991490660" className="contact-link whatsapp">
             <FaWhatsapp className="icon" />
             <span className="contact-text">WhatsApp</span>
           </a>

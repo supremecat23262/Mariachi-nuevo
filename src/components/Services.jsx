@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FaMusic, FaGlassCheers, FaCalendarAlt, FaGift, FaStar } from 'react-icons/fa';
 import { supabase } from '../../supabaseClient';
 import '../styles/Services.css';
-import { gtagEvent } from '../lib/gtag';
 
 const Services = () => {
   const [showModal, setShowModal] = useState(false);
@@ -143,19 +142,8 @@ const Services = () => {
                   ))}
                 </div>
                 <div className="form-buttons">
-                  <button
-                    type="submit"
-                    onClick={() =>
-                      gtagEvent({
-                        action: 'clic_comentario',
-                        category: 'formulario',
-                        label: 'testimonio',
-                      })
-                    }
-                  >
-                    Enviar
-                  </button>
-
+                  <button type="submit"
+                  >Enviar</button>
                   <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
                 </div>
                 {message && <p className="form-message">{message}</p>}
