@@ -142,7 +142,7 @@ const Services = () => {
                   ))}
                 </div>
                 <div className="form-buttons">
-                  <button type="submit"
+                  <button className="btn-enviar-comment" type="submit"
                   >Enviar</button>
                   <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
                 </div>
